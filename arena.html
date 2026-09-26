@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gladiator's Ascent | Arena</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Arena Battle</h1>
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hub.html">Gladiator Hub</a></li>
+                <li><a href="arena.html" aria-current="page">Arena</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="profile.html">Player Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="battle-status" aria-labelledby="battle-status-heading">
+            <h2 id="battle-status-heading">Battle Status</h2>
+            <p>Turn: <span id="current-turn">Player</span></p>
+            <p>Round: <span id="round-number">4</span></p>
+        </section>
+
+        <section id="combatants" aria-labelledby="combatants-heading">
+            <h2 id="combatants-heading">Combatants</h2>
+
+            <article id="player-combatant">
+                <h3>Marcus</h3>
+                <p>HP: <span id="player-hp">82 / 100</span></p>
+                <dl>
+                    <dt>Attack</dt>
+                    <dd>18</dd>
+                    <dt>Defense</dt>
+                    <dd>14</dd>
+                    <dt>Accuracy</dt>
+                    <dd>78%</dd>
+                    <dt>Evasion</dt>
+                    <dd>12%</dd>
+                </dl>
+            </article>
+
+            <article id="enemy-combatant">
+                <h3>Cassian</h3>
+                <p>HP: <span id="enemy-hp">61 / 90</span></p>
+                <dl>
+                    <dt>Attack</dt>
+                    <dd>16</dd>
+                    <dt>Defense</dt>
+                    <dd>12</dd>
+                    <dt>Accuracy</dt>
+                    <dd>74%</dd>
+                    <dt>Evasion</dt>
+                    <dd>15%</dd>
+                </dl>
+            </article>
+        </section>
+
+        <section id="battle-actions" aria-labelledby="actions-heading">
+            <h2 id="actions-heading">Battle Actions</h2>
+
+            <article>
+                <h3>Attack</h3>
+                <p>Standard attack with normal accuracy and damage.</p>
+                <button type="button" id="attack-button">Attack</button>
+            </article>
+
+            <article>
+                <h3>Heavy Attack</h3>
+                <p>Higher damage but lower accuracy.</p>
+                <button type="button" id="heavy-attack-button">Heavy Attack</button>
+            </article>
+
+            <article>
+                <h3>Defend</h3>
+                <p>Increase defense for one turn.</p>
+                <button type="button" id="defend-button">Defend</button>
+            </article>
+
+            <article>
+                <h3>Focus</h3>
+                <p>Increase accuracy and critical chance for the next attack.</p>
+                <button type="button" id="focus-button">Focus</button>
+            </article>
+
+            <article>
+                <h3>Recover</h3>
+                <p>Recover a small amount of HP. Limited uses per battle.</p>
+                <button type="button" id="recover-button">Recover</button>
+            </article>
+        </section>
+
+        <section aria-labelledby="battle-log-heading">
+            <h2 id="battle-log-heading">Battle Log</h2>
+            <ol id="battle-log" aria-live="polite">
+                <li>Marcus attacks Cassian.</li>
+                <li>The attack hits.</li>
+                <li>Cassian takes 14 damage.</li>
+                <li>Cassian attacks Marcus.</li>
+                <li>Marcus dodges the attack.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>Gladiator's Ascent</p>
+    </footer>
+</body>
+</html>

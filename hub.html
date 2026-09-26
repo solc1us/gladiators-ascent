@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gladiator's Ascent | Gladiator Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gladiator Hub</h1>
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hub.html" aria-current="page">Gladiator Hub</a></li>
+                <li><a href="arena.html">Arena</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="profile.html">Player Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gladiator-summary" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">Gladiator Summary</h2>
+            <img
+                src="assets/images/gladiator.png"
+                alt="Marcus, the player's gladiator, ready for battle"
+            >
+            <dl>
+                <dt>Name</dt>
+                <dd id="gladiator-name">Marcus</dd>
+                <dt>Status</dt>
+                <dd id="gladiator-status">Alive</dd>
+                <dt>HP</dt>
+                <dd id="gladiator-hp">100 / 100</dd>
+                <dt>Kills</dt>
+                <dd id="gladiator-kills">12</dd>
+                <dt>Gold</dt>
+                <dd id="player-gold">850</dd>
+                <dt>Leaderboard Rank</dt>
+                <dd id="gladiator-rank">#17</dd>
+            </dl>
+        </section>
+
+        <section id="player-stats" aria-labelledby="stats-heading">
+            <h2 id="stats-heading">Gladiator Statistics</h2>
+            <dl>
+                <dt>Attack</dt>
+                <dd>18</dd>
+                <dt>Defense</dt>
+                <dd>14</dd>
+                <dt>Accuracy</dt>
+                <dd>78%</dd>
+                <dt>Evasion</dt>
+                <dd>12%</dd>
+                <dt>Critical Chance</dt>
+                <dd>8%</dd>
+                <dt>Block Chance</dt>
+                <dd>15%</dd>
+            </dl>
+        </section>
+
+        <section id="equipment" aria-labelledby="equipment-heading">
+            <h2 id="equipment-heading">Equipment</h2>
+            <dl>
+                <dt>Weapon</dt>
+                <dd>Iron Sword</dd>
+                <dt>Armor</dt>
+                <dd>Leather Armor</dd>
+                <dt>Helmet</dt>
+                <dd>None</dd>
+                <dt>Shield</dt>
+                <dd>Round Shield</dd>
+            </dl>
+        </section>
+
+        <nav aria-label="Gladiator actions">
+            <h2>Main Actions</h2>
+            <ul>
+                <li><a href="arena.html">Enter Arena</a></li>
+                <!-- Tournament page will be implemented later. -->
+                <li><a href="#">Tournament</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <!-- Equipment page will be implemented later. -->
+                <li><a href="#">Equipment</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="profile.html">Player Profile</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p>Gladiator's Ascent</p>
+    </footer>
+</body>
+</html>

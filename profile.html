@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gladiator's Ascent | Player Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Player Profile</h1>
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hub.html">Gladiator Hub</a></li>
+                <li><a href="arena.html">Arena</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="profile.html" aria-current="page">Player Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="player-information" aria-labelledby="information-heading">
+            <h2 id="information-heading">Player Information</h2>
+            <p>Player Name: <span id="player-name">Player One</span></p>
+            <p>This profile remains available even when a gladiator dies.</p>
+        </section>
+
+        <section id="career-statistics" aria-labelledby="career-heading">
+            <h2 id="career-heading">Career Statistics</h2>
+            <dl>
+                <dt>Total Career Kills</dt>
+                <dd>74</dd>
+                <dt>Gladiators Created</dt>
+                <dd>6</dd>
+                <dt>Gladiators Lost</dt>
+                <dd>5</dd>
+                <dt>Total Battles</dt>
+                <dd>91</dd>
+                <dt>Total Victories</dt>
+                <dd>63</dd>
+                <dt>Highest Leaderboard Rank</dt>
+                <dd>#3</dd>
+                <dt>Best Gladiator</dt>
+                <dd>Marcus</dd>
+                <dt>Best Gladiator Kills</dt>
+                <dd>29</dd>
+                <dt>Total Gold Earned</dt>
+                <dd>8,450</dd>
+            </dl>
+        </section>
+
+        <section id="gladiator-history" aria-labelledby="history-heading">
+            <h2 id="history-heading">Gladiator History</h2>
+            <p>Previous gladiators remain part of the player's career history after death.</p>
+
+            <table id="gladiator-history-table">
+                <caption>Player One's gladiator career history</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Gladiator</th>
+                        <th scope="col">Kills</th>
+                        <th scope="col">Battles</th>
+                        <th scope="col">Highest Rank</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Marcus</th>
+                        <td>29</td>
+                        <td>37</td>
+                        <td>#3</td>
+                        <td>Dead</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Darius</th>
+                        <td>18</td>
+                        <td>21</td>
+                        <td>#8</td>
+                        <td>Dead</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Cassian</th>
+                        <td>11</td>
+                        <td>14</td>
+                        <td>#15</td>
+                        <td>Dead</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Lucius</th>
+                        <td>9</td>
+                        <td>12</td>
+                        <td>#20</td>
+                        <td>Dead</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Aelius</th>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>#25</td>
+                        <td>Alive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Gladiator's Ascent</p>
+    </footer>
+</body>
+</html>

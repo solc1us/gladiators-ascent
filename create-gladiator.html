@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gladiator's Ascent | Create Gladiator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Create Your Gladiator</h1>
+        <p>Choose a name and fighting style before entering the arena.</p>
+    </header>
+
+    <main>
+        <form id="gladiator-form" action="#" method="post">
+            <section aria-labelledby="identity-heading">
+                <h2 id="identity-heading">Gladiator Name</h2>
+                <label for="gladiator-name">Gladiator Name</label>
+                <input type="text" id="gladiator-name" name="gladiator-name" required>
+            </section>
+
+            <fieldset>
+                <legend>Fighting Style</legend>
+
+                <div>
+                    <input type="radio" id="style-balanced" name="fighting-style" value="balanced" checked>
+                    <label for="style-balanced">Balanced</label>
+                    <p>Moderate attack, defense, accuracy, and evasion.</p>
+                </div>
+
+                <div>
+                    <input type="radio" id="style-heavy" name="fighting-style" value="heavy">
+                    <label for="style-heavy">Heavy</label>
+                    <p>Higher attack and defense but lower accuracy and evasion.</p>
+                </div>
+
+                <div>
+                    <input type="radio" id="style-agile" name="fighting-style" value="agile">
+                    <label for="style-agile">Agile</label>
+                    <p>Higher accuracy and evasion but lower defense.</p>
+                </div>
+            </fieldset>
+
+            <section id="starting-stats" aria-labelledby="stats-heading">
+                <h2 id="stats-heading">Starting Statistics Preview</h2>
+                <dl>
+                    <dt>HP</dt>
+                    <dd>100</dd>
+                    <dt>Attack</dt>
+                    <dd>10</dd>
+                    <dt>Defense</dt>
+                    <dd>10</dd>
+                    <dt>Accuracy</dt>
+                    <dd>75%</dd>
+                    <dt>Evasion</dt>
+                    <dd>10%</dd>
+                    <dt>Critical Chance</dt>
+                    <dd>5%</dd>
+                </dl>
+            </section>
+
+            <button type="submit">Enter the Arena</button>
+        </form>
+
+        <p><a href="index.html">Back to Main Menu</a></p>
+    </main>
+
+    <footer>
+        <p>Gladiator's Ascent</p>
+    </footer>
+</body>
+</html>
