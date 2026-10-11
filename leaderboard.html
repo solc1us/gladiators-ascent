@@ -4,116 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gladiator's Ascent | Leaderboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="js/game.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>Gladiator Leaderboard</h1>
-        <nav aria-label="Primary navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="hub.html">Gladiator Hub</a></li>
-                <li><a href="arena.html">Arena</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="leaderboard.html" aria-current="page">Leaderboard</a></li>
-                <li><a href="profile.html">Player Profile</a></li>
+<body class="flex min-h-screen flex-col overflow-x-hidden bg-stone-950 font-sans text-amber-50 antialiased">
+    <header class="border-b border-amber-800 bg-stone-950/95 px-4 pt-8 text-center shadow-lg">
+        <h1 class="font-serif text-3xl font-black tracking-wide text-amber-300 sm:text-5xl">Gladiator Leaderboard</h1>
+        <nav class="mx-auto mt-7 max-w-6xl border-t border-amber-900" aria-label="Primary navigation">
+            <ul class="flex flex-col gap-1 py-3 sm:flex-row sm:flex-wrap sm:justify-center">
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="index.html">Home</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="hub.html">Gladiator Hub</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="arena.html">Arena</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="shop.html">Shop</a></li><li><a class="block min-h-11 rounded-md bg-amber-600 px-4 py-2.5 font-bold text-stone-950" href="leaderboard.html" aria-current="page">Leaderboard</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="profile.html">Player Profile</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section aria-labelledby="rankings-heading">
-            <h2 id="rankings-heading">Rankings</h2>
-            <p>
-                Dead gladiators remain permanently recorded on the leaderboard but can no
-                longer earn kills.
-            </p>
-
-            <table id="leaderboard-table">
-                <caption>Current gladiator rankings</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Rank</th>
-                        <th scope="col">Gladiator</th>
-                        <th scope="col">Kills</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <th scope="row">Maximus</th>
-                        <td>58</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <th scope="row">Aurelius</th>
-                        <td>53</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <th scope="row">Cassius</th>
-                        <td>47</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <th scope="row">Brutus</th>
-                        <td>43</td>
-                        <td>Dead</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <th scope="row">Titus</th>
-                        <td>39</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <th scope="row">Spartacus</th>
-                        <td>35</td>
-                        <td>Dead</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <th scope="row">Lucius</th>
-                        <td>31</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <th scope="row">Decimus</th>
-                        <td>26</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <th scope="row">Gaius</th>
-                        <td>22</td>
-                        <td>Dead</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <th scope="row">Flavius</th>
-                        <td>18</td>
-                        <td>Alive</td>
-                    </tr>
-                    <tr class="player-row">
-                        <td>17</td>
-                        <th scope="row">Marcus <span>(Your Gladiator)</span></th>
-                        <td>12</td>
-                        <td>Alive</td>
-                    </tr>
-                </tbody>
-            </table>
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-12">
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" aria-labelledby="rankings-heading">
+            <h2 class="mb-3 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="rankings-heading">Rankings</h2>
+            <p class="mb-5 max-w-3xl leading-7 text-stone-400">Dead gladiators remain permanently recorded on the leaderboard but can no longer earn kills.</p>
+            <div class="max-w-full overflow-x-auto rounded-lg border border-amber-900" role="region" aria-label="Scrollable gladiator leaderboard" tabindex="0">
+                <table class="w-full min-w-160 border-collapse text-sm sm:text-base" id="leaderboard-table">
+                    <caption class="bg-stone-950 px-4 py-3 text-left text-sm italic text-stone-400">Current gladiator rankings</caption>
+                    <thead class="bg-red-950 font-serif text-amber-50"><tr><th class="px-4 py-3 text-center" scope="col">Rank</th><th class="px-4 py-3 text-left" scope="col">Gladiator</th><th class="px-4 py-3 text-center" scope="col">Kills</th><th class="px-4 py-3 text-center" scope="col">Status</th></tr></thead>
+                    <tbody class="divide-y divide-amber-900 bg-amber-50 text-stone-950">
+                        <tr class="hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">1</td><th class="px-4 py-3 text-left" scope="row">Maximus</th><td class="px-4 py-3 text-center font-bold">58</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="bg-amber-100/80 hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">2</td><th class="px-4 py-3 text-left" scope="row">Aurelius</th><td class="px-4 py-3 text-center font-bold">53</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">3</td><th class="px-4 py-3 text-left" scope="row">Cassius</th><td class="px-4 py-3 text-center font-bold">47</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="bg-stone-400 text-stone-700"><td class="px-4 py-3 text-center font-bold">4</td><th class="px-4 py-3 text-left line-through" scope="row">Brutus</th><td class="px-4 py-3 text-center font-bold">43</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-stone-700 px-3 py-1 text-xs font-bold text-stone-100">Dead</span></td></tr>
+                        <tr class="hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">5</td><th class="px-4 py-3 text-left" scope="row">Titus</th><td class="px-4 py-3 text-center font-bold">39</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="bg-stone-400 text-stone-700"><td class="px-4 py-3 text-center font-bold">6</td><th class="px-4 py-3 text-left line-through" scope="row">Spartacus</th><td class="px-4 py-3 text-center font-bold">35</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-stone-700 px-3 py-1 text-xs font-bold text-stone-100">Dead</span></td></tr>
+                        <tr class="hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">7</td><th class="px-4 py-3 text-left" scope="row">Lucius</th><td class="px-4 py-3 text-center font-bold">31</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="bg-amber-100/80 hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">8</td><th class="px-4 py-3 text-left" scope="row">Decimus</th><td class="px-4 py-3 text-center font-bold">26</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="bg-stone-400 text-stone-700"><td class="px-4 py-3 text-center font-bold">9</td><th class="px-4 py-3 text-left line-through" scope="row">Gaius</th><td class="px-4 py-3 text-center font-bold">22</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-stone-700 px-3 py-1 text-xs font-bold text-stone-100">Dead</span></td></tr>
+                        <tr class="bg-amber-100/80 hover:bg-amber-100"><td class="px-4 py-3 text-center font-bold">10</td><th class="px-4 py-3 text-left" scope="row">Flavius</th><td class="px-4 py-3 text-center font-bold">18</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                        <tr class="player-row bg-amber-200 font-bold ring-3 ring-inset ring-amber-600"><td class="px-4 py-3 text-center">17</td><th class="px-4 py-3 text-left" scope="row">Marcus <span class="block text-xs uppercase tracking-wide text-red-950 sm:inline">(Your Gladiator)</span></th><td class="px-4 py-3 text-center">12</td><td class="px-4 py-3 text-center"><span class="rounded-full bg-emerald-800 px-3 py-1 text-xs font-bold text-emerald-100">Alive</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
-
-    <footer>
-        <p>Gladiator's Ascent</p>
-    </footer>
+    <footer class="border-t border-amber-900 bg-stone-950 px-4 py-6 text-center font-serif text-sm text-stone-500"><p>Gladiator's Ascent</p></footer>
 </body>
 </html>

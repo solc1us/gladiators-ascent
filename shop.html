@@ -4,136 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gladiator's Ascent | Shop</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="js/game.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>Gladiator Shop</h1>
-        <nav aria-label="Primary navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="hub.html">Gladiator Hub</a></li>
-                <li><a href="arena.html">Arena</a></li>
-                <li><a href="shop.html" aria-current="page">Shop</a></li>
-                <li><a href="leaderboard.html">Leaderboard</a></li>
-                <li><a href="profile.html">Player Profile</a></li>
-            </ul>
-        </nav>
+<body class="flex min-h-screen flex-col overflow-x-hidden bg-stone-950 font-sans text-amber-50 antialiased">
+    <header class="border-b border-amber-800 bg-stone-950/95 px-4 pt-8 text-center shadow-lg">
+        <h1 class="font-serif text-3xl font-black tracking-wide text-amber-300 sm:text-5xl">Gladiator Shop</h1>
+        <nav class="mx-auto mt-7 max-w-6xl border-t border-amber-900" aria-label="Primary navigation"><ul class="flex flex-col gap-1 py-3 sm:flex-row sm:flex-wrap sm:justify-center"><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="index.html">Home</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="hub.html">Gladiator Hub</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="arena.html">Arena</a></li><li><a class="block min-h-11 rounded-md bg-amber-600 px-4 py-2.5 font-bold text-stone-950" href="shop.html" aria-current="page">Shop</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="leaderboard.html">Leaderboard</a></li><li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="profile.html">Player Profile</a></li></ul></nav>
     </header>
 
-    <main>
-        <p>Current Gold: <span id="player-gold">850</span></p>
+    <main class="mx-auto w-full max-w-6xl flex-1 space-y-6 px-4 py-8 sm:px-6 sm:py-12">
+        <p class="rounded-lg border border-amber-600 bg-stone-900 px-5 py-4 text-right font-bold shadow-xl">Current Gold: <span class="ml-2 text-xl text-amber-300" id="player-gold">850</span></p>
 
-        <section id="weapons" aria-labelledby="weapons-heading">
-            <h2 id="weapons-heading">Weapons</h2>
-
-            <article>
-                <h3>Iron Sword</h3>
-                <ul>
-                    <li>Attack +8</li>
-                    <li>Accuracy +3</li>
-                    <li>Price: 300 Gold</li>
-                </ul>
-                <button type="button">Buy Iron Sword</button>
-            </article>
-
-            <article>
-                <h3>Heavy Axe</h3>
-                <ul>
-                    <li>Attack +14</li>
-                    <li>Accuracy -5</li>
-                    <li>Price: 500 Gold</li>
-                </ul>
-                <button type="button">Buy Heavy Axe</button>
-            </article>
-
-            <article>
-                <h3>Steel Sword</h3>
-                <ul>
-                    <li>Attack +12</li>
-                    <li>Accuracy +2</li>
-                    <li>Price: 650 Gold</li>
-                </ul>
-                <button type="button">Buy Steel Sword</button>
-            </article>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="weapons" aria-labelledby="weapons-heading">
+            <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="weapons-heading">Weapons</h2>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Iron Sword</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Attack +8</li><li>Accuracy +3</li><li class="font-bold text-amber-300">Price: 300 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Iron Sword</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Heavy Axe</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Attack +14</li><li>Accuracy -5</li><li class="font-bold text-amber-300">Price: 500 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Heavy Axe</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Steel Sword</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Attack +12</li><li>Accuracy +2</li><li class="font-bold text-amber-300">Price: 650 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Steel Sword</button></article>
+            </div>
         </section>
 
-        <section id="armor" aria-labelledby="armor-heading">
-            <h2 id="armor-heading">Armor</h2>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="armor" aria-labelledby="armor-heading"><h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="armor-heading">Armor</h2><div class="grid grid-cols-1 gap-4 md:grid-cols-2"><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Leather Armor</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +6</li><li>Evasion +2</li><li class="font-bold text-amber-300">Price: 250 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Leather Armor</button></article><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Iron Cuirass</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +12</li><li>Evasion -3</li><li class="font-bold text-amber-300">Price: 600 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Iron Cuirass</button></article></div></section>
 
-            <article>
-                <h3>Leather Armor</h3>
-                <ul>
-                    <li>Defense +6</li>
-                    <li>Evasion +2</li>
-                    <li>Price: 250 Gold</li>
-                </ul>
-                <button type="button">Buy Leather Armor</button>
-            </article>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="helmets" aria-labelledby="helmets-heading"><h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="helmets-heading">Helmets</h2><div class="grid grid-cols-1 gap-4 md:grid-cols-2"><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Leather Cap</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +2</li><li class="font-bold text-amber-300">Price: 150 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Leather Cap</button></article><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Bronze Helmet</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +5</li><li>Critical Chance +1</li><li class="font-bold text-amber-300">Price: 350 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Bronze Helmet</button></article></div></section>
 
-            <article>
-                <h3>Iron Cuirass</h3>
-                <ul>
-                    <li>Defense +12</li>
-                    <li>Evasion -3</li>
-                    <li>Price: 600 Gold</li>
-                </ul>
-                <button type="button">Buy Iron Cuirass</button>
-            </article>
-        </section>
-
-        <section id="helmets" aria-labelledby="helmets-heading">
-            <h2 id="helmets-heading">Helmets</h2>
-
-            <article>
-                <h3>Leather Cap</h3>
-                <ul>
-                    <li>Defense +2</li>
-                    <li>Price: 150 Gold</li>
-                </ul>
-                <button type="button">Buy Leather Cap</button>
-            </article>
-
-            <article>
-                <h3>Bronze Helmet</h3>
-                <ul>
-                    <li>Defense +5</li>
-                    <li>Critical Chance +1</li>
-                    <li>Price: 350 Gold</li>
-                </ul>
-                <button type="button">Buy Bronze Helmet</button>
-            </article>
-        </section>
-
-        <section id="shields" aria-labelledby="shields-heading">
-            <h2 id="shields-heading">Shields</h2>
-
-            <article>
-                <h3>Round Shield</h3>
-                <ul>
-                    <li>Defense +4</li>
-                    <li>Block Chance +8</li>
-                    <li>Price: 300 Gold</li>
-                </ul>
-                <button type="button">Buy Round Shield</button>
-            </article>
-
-            <article>
-                <h3>Tower Shield</h3>
-                <ul>
-                    <li>Defense +8</li>
-                    <li>Block Chance +12</li>
-                    <li>Evasion -4</li>
-                    <li>Price: 550 Gold</li>
-                </ul>
-                <button type="button">Buy Tower Shield</button>
-            </article>
-        </section>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="shields" aria-labelledby="shields-heading"><h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="shields-heading">Shields</h2><div class="grid grid-cols-1 gap-4 md:grid-cols-2"><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Round Shield</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +4</li><li>Block Chance +8</li><li class="font-bold text-amber-300">Price: 300 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Round Shield</button></article><article class="flex flex-col rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5"><h3 class="font-serif text-xl font-bold text-amber-300">Tower Shield</h3><ul class="my-4 flex-1 list-disc space-y-2 pl-5 text-stone-300"><li>Defense +8</li><li>Block Chance +12</li><li>Evasion -4</li><li class="font-bold text-amber-300">Price: 550 Gold</li></ul><button class="min-h-11 rounded-md border border-amber-600 bg-red-950 px-4 py-2 font-bold hover:bg-red-900" type="button">Buy Tower Shield</button></article></div></section>
     </main>
-
-    <footer>
-        <p>Gladiator's Ascent</p>
-    </footer>
+    <footer class="border-t border-amber-900 bg-stone-950 px-4 py-6 text-center font-serif text-sm text-stone-500"><p>Gladiator's Ascent</p></footer>
 </body>
 </html>

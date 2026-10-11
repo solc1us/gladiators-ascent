@@ -4,113 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gladiator's Ascent | Arena</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="js/game.js" defer></script>
 </head>
-<body>
-    <header>
-        <h1>Arena Battle</h1>
-        <nav aria-label="Primary navigation">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="hub.html">Gladiator Hub</a></li>
-                <li><a href="arena.html" aria-current="page">Arena</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="leaderboard.html">Leaderboard</a></li>
-                <li><a href="profile.html">Player Profile</a></li>
+<body class="flex min-h-screen flex-col overflow-x-hidden bg-stone-950 font-sans text-amber-50 antialiased">
+    <header class="border-b border-amber-800 bg-stone-950/95 px-4 pt-8 text-center shadow-lg">
+        <h1 class="font-serif text-3xl font-black tracking-wide text-amber-300 sm:text-5xl">Arena Battle</h1>
+        <nav class="mx-auto mt-7 max-w-6xl border-t border-amber-900" aria-label="Primary navigation">
+            <ul class="flex flex-col gap-1 py-3 sm:flex-row sm:flex-wrap sm:justify-center">
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="index.html">Home</a></li>
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="hub.html">Gladiator Hub</a></li>
+                <li><a class="block min-h-11 rounded-md bg-amber-600 px-4 py-2.5 font-bold text-stone-950" href="arena.html" aria-current="page">Arena</a></li>
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="shop.html">Shop</a></li>
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="leaderboard.html">Leaderboard</a></li>
+                <li><a class="block min-h-11 rounded-md px-4 py-2.5 font-bold transition hover:bg-stone-800 hover:text-amber-300" href="profile.html">Player Profile</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="battle-status" aria-labelledby="battle-status-heading">
-            <h2 id="battle-status-heading">Battle Status</h2>
-            <p>Turn: <span id="current-turn">Player</span></p>
-            <p>Round: <span id="round-number">4</span></p>
+    <main class="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-6 px-4 py-8 sm:px-6 sm:py-12">
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="battle-status" aria-labelledby="battle-status-heading">
+            <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="battle-status-heading">Battle Status</h2>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <p class="rounded-md border border-amber-900 bg-stone-950 px-4 py-3 text-center font-bold">Turn: <span class="text-amber-300" id="current-turn">Player</span></p>
+                <p class="rounded-md border border-amber-900 bg-stone-950 px-4 py-3 text-center font-bold">Round: <span class="text-amber-300" id="round-number">4</span></p>
+            </div>
         </section>
 
-        <section id="combatants" aria-labelledby="combatants-heading">
-            <h2 id="combatants-heading">Combatants</h2>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="combatants" aria-labelledby="combatants-heading">
+            <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="combatants-heading">Combatants</h2>
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <article class="rounded-lg border border-amber-900 border-t-4 border-t-amber-600 bg-stone-950 p-5" id="player-combatant">
+                    <h3 class="font-serif text-2xl font-bold text-amber-300">Marcus</h3>
+                    <p class="mt-2 font-bold">HP: <span class="text-emerald-400" id="player-hp">82 / 100</span></p>
+                    <dl class="mt-4 grid grid-cols-2 gap-2 text-sm"><dt class="text-stone-400">Attack</dt><dd class="text-right font-bold">18</dd><dt class="text-stone-400">Defense</dt><dd class="text-right font-bold">14</dd><dt class="text-stone-400">Accuracy</dt><dd class="text-right font-bold">78%</dd><dt class="text-stone-400">Evasion</dt><dd class="text-right font-bold">12%</dd></dl>
+                </article>
 
-            <article id="player-combatant">
-                <h3>Marcus</h3>
-                <p>HP: <span id="player-hp">82 / 100</span></p>
-                <dl>
-                    <dt>Attack</dt>
-                    <dd>18</dd>
-                    <dt>Defense</dt>
-                    <dd>14</dd>
-                    <dt>Accuracy</dt>
-                    <dd>78%</dd>
-                    <dt>Evasion</dt>
-                    <dd>12%</dd>
-                </dl>
-            </article>
-
-            <article id="enemy-combatant">
-                <h3>Cassian</h3>
-                <p>HP: <span id="enemy-hp">61 / 90</span></p>
-                <dl>
-                    <dt>Attack</dt>
-                    <dd>16</dd>
-                    <dt>Defense</dt>
-                    <dd>12</dd>
-                    <dt>Accuracy</dt>
-                    <dd>74%</dd>
-                    <dt>Evasion</dt>
-                    <dd>15%</dd>
-                </dl>
-            </article>
+                <article class="rounded-lg border border-amber-900 border-t-4 border-t-red-700 bg-stone-950 p-5" id="enemy-combatant">
+                    <h3 class="font-serif text-2xl font-bold text-red-300">Cassian</h3>
+                    <p class="mt-2 font-bold">HP: <span class="text-red-400" id="enemy-hp">61 / 90</span></p>
+                    <dl class="mt-4 grid grid-cols-2 gap-2 text-sm"><dt class="text-stone-400">Attack</dt><dd class="text-right font-bold">16</dd><dt class="text-stone-400">Defense</dt><dd class="text-right font-bold">12</dd><dt class="text-stone-400">Accuracy</dt><dd class="text-right font-bold">74%</dd><dt class="text-stone-400">Evasion</dt><dd class="text-right font-bold">15%</dd></dl>
+                </article>
+            </div>
         </section>
 
-        <section id="battle-actions" aria-labelledby="actions-heading">
-            <h2 id="actions-heading">Battle Actions</h2>
-
-            <article>
-                <h3>Attack</h3>
-                <p>Standard attack with normal accuracy and damage.</p>
-                <button type="button" id="attack-button">Attack</button>
-            </article>
-
-            <article>
-                <h3>Heavy Attack</h3>
-                <p>Higher damage but lower accuracy.</p>
-                <button type="button" id="heavy-attack-button">Heavy Attack</button>
-            </article>
-
-            <article>
-                <h3>Defend</h3>
-                <p>Increase defense for one turn.</p>
-                <button type="button" id="defend-button">Defend</button>
-            </article>
-
-            <article>
-                <h3>Focus</h3>
-                <p>Increase accuracy and critical chance for the next attack.</p>
-                <button type="button" id="focus-button">Focus</button>
-            </article>
-
-            <article>
-                <h3>Recover</h3>
-                <p>Recover a small amount of HP. Limited uses per battle.</p>
-                <button type="button" id="recover-button">Recover</button>
-            </article>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="battle-actions" aria-labelledby="actions-heading">
+            <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="actions-heading">Battle Actions</h2>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <article class="flex flex-col rounded-lg border border-amber-900 bg-stone-950 p-4"><h3 class="font-serif text-lg font-bold text-amber-300">Attack</h3><p class="mt-2 flex-1 text-sm leading-6 text-stone-400">Standard attack with normal accuracy and damage.</p><button class="mt-4 min-h-11 rounded-md border border-amber-600 bg-red-950 px-3 py-2 font-bold hover:bg-red-900" type="button" id="attack-button">Attack</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 bg-stone-950 p-4"><h3 class="font-serif text-lg font-bold text-amber-300">Heavy Attack</h3><p class="mt-2 flex-1 text-sm leading-6 text-stone-400">Higher damage but lower accuracy.</p><button class="mt-4 min-h-11 rounded-md border border-amber-600 bg-red-950 px-3 py-2 font-bold hover:bg-red-900" type="button" id="heavy-attack-button">Heavy Attack</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 bg-stone-950 p-4"><h3 class="font-serif text-lg font-bold text-amber-300">Defend</h3><p class="mt-2 flex-1 text-sm leading-6 text-stone-400">Increase defense for one turn.</p><button class="mt-4 min-h-11 rounded-md border border-amber-600 bg-red-950 px-3 py-2 font-bold hover:bg-red-900" type="button" id="defend-button">Defend</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 bg-stone-950 p-4"><h3 class="font-serif text-lg font-bold text-amber-300">Focus</h3><p class="mt-2 flex-1 text-sm leading-6 text-stone-400">Increase accuracy and critical chance for the next attack.</p><button class="mt-4 min-h-11 rounded-md border border-amber-600 bg-red-950 px-3 py-2 font-bold hover:bg-red-900" type="button" id="focus-button">Focus</button></article>
+                <article class="flex flex-col rounded-lg border border-amber-900 bg-stone-950 p-4"><h3 class="font-serif text-lg font-bold text-amber-300">Recover</h3><p class="mt-2 flex-1 text-sm leading-6 text-stone-400">Recover a small amount of HP. Limited uses per battle.</p><button class="mt-4 min-h-11 rounded-md border border-amber-600 bg-red-950 px-3 py-2 font-bold hover:bg-red-900" type="button" id="recover-button">Recover</button></article>
+            </div>
         </section>
 
-        <section aria-labelledby="battle-log-heading">
-            <h2 id="battle-log-heading">Battle Log</h2>
-            <ol id="battle-log" aria-live="polite">
-                <li>Marcus attacks Cassian.</li>
-                <li>The attack hits.</li>
-                <li>Cassian takes 14 damage.</li>
-                <li>Cassian attacks Marcus.</li>
-                <li>Marcus dodges the attack.</li>
-            </ol>
+        <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" aria-labelledby="battle-log-heading">
+            <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="battle-log-heading">Battle Log</h2>
+            <ol class="list-decimal space-y-2 rounded-lg border-l-4 border-amber-600 bg-stone-950 py-4 pr-4 pl-12 text-sm text-stone-300 sm:text-base" id="battle-log" aria-live="polite"><li>Marcus attacks Cassian.</li><li>The attack hits.</li><li>Cassian takes 14 damage.</li><li>Cassian attacks Marcus.</li><li>Marcus dodges the attack.</li></ol>
         </section>
     </main>
-
-    <footer>
-        <p>Gladiator's Ascent</p>
-    </footer>
+    <footer class="border-t border-amber-900 bg-stone-950 px-4 py-6 text-center font-serif text-sm text-stone-500"><p>Gladiator's Ascent</p></footer>
 </body>
 </html>
