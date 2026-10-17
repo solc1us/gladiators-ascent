@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gladiator's Ascent | Gladiator Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="js/game.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body class="flex min-h-screen flex-col overflow-x-hidden bg-stone-950 font-sans text-amber-50 antialiased">
     <header class="border-b border-amber-800 bg-stone-950/95 px-4 pt-8 text-center shadow-lg">
@@ -41,8 +42,8 @@
         <section class="rounded-xl border border-amber-900 bg-stone-900/90 p-4 shadow-xl sm:p-6" id="player-stats" aria-labelledby="stats-heading">
             <h2 class="mb-5 border-b border-amber-800 pb-3 font-serif text-2xl font-bold text-amber-300" id="stats-heading">Gladiator Statistics</h2>
             <dl class="grid grid-cols-2 gap-3">
-                <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Attack</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black">18</dd>
-                <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Defense</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black">14</dd>
+                <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Attack</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black" id="gladiator-attack">18</dd>
+                <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Defense</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black" id="gladiator-defense">14</dd>
                 <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Accuracy</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black">78%</dd>
                 <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Evasion</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black">12%</dd>
                 <dt class="rounded-l-md bg-stone-950 px-3 py-2 font-bold text-stone-400">Critical Chance</dt><dd class="rounded-r-md bg-stone-950 px-3 py-2 text-right font-black">8%</dd>
