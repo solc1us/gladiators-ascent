@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from '../components/Header.jsx'
+import WeaponCatalog from '../components/WeaponCatalog.jsx'
 
 const shopSections = [
   {
@@ -98,6 +99,7 @@ function Shop({ playerGold, onPurchase }) {
             </div>
           </section>
         ))}
+        <WeaponCatalog />
       </main>
     </>
   )
