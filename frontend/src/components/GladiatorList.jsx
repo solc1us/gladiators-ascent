@@ -1,6 +1,6 @@
 import GladiatorCard from './GladiatorCard.jsx'
 
-function GladiatorList({ gladiators, showDead = true }) {
+function GladiatorList({ gladiators, showDead = true, onEdit, onDelete }) {
   const sortedGladiators = [...gladiators].sort((a, b) => b.kills - a.kills)
   const visibleGladiators = sortedGladiators.filter(
     (gladiator) => showDead || gladiator.status !== 'Dead',
@@ -32,12 +32,13 @@ function GladiatorList({ gladiators, showDead = true }) {
             <th className="px-4 py-3 text-left" scope="col">Style</th>
             <th className="px-4 py-3 text-center" scope="col">Kills</th>
             <th className="px-4 py-3 text-center" scope="col">Status</th>
+            <th className="px-4 py-3 text-center" scope="col">Actions</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-amber-900 bg-amber-50 text-stone-950">
           {sortedGladiators.map((gladiator, index) =>
             showDead || gladiator.status !== 'Dead' ? (
-              <GladiatorCard gladiator={gladiator} key={gladiator.id} rank={index + 1} />
+              <GladiatorCard gladiator={gladiator} key={gladiator.id} rank={index + 1} onEdit={onEdit} onDelete={onDelete} />
             ) : null,
           )}
         </tbody>

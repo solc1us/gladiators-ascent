@@ -14,8 +14,8 @@ const startingStats = [
 function CreateGladiator({ onAdd }) {
   const navigate = useNavigate()
 
-  function handleAdd(gladiator) {
-    onAdd(gladiator)
+  async function handleAdd(gladiator) {
+    await onAdd(gladiator)
     navigate('/hub')
   }
 

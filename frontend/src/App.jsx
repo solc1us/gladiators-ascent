@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Arena from './pages/Arena.jsx'
 import CreateGladiator from './pages/CreateGladiator.jsx'
@@ -7,41 +7,7 @@ import Hub from './pages/Hub.jsx'
 import Leaderboard from './pages/Leaderboard.jsx'
 import Profile from './pages/Profile.jsx'
 import Shop from './pages/Shop.jsx'
-
-const initialGladiators = [
-  { id: 1, name: 'Maximus', style: 'Heavy', kills: 58, status: 'Alive', isPlayer: false },
-  { id: 2, name: 'Aurelius', style: 'Balanced', kills: 53, status: 'Alive', isPlayer: false },
-  { id: 3, name: 'Cassius', style: 'Agile', kills: 47, status: 'Alive', isPlayer: false },
-  { id: 4, name: 'Brutus', style: 'Heavy', kills: 43, status: 'Dead', isPlayer: false },
-  { id: 5, name: 'Titus', style: 'Balanced', kills: 39, status: 'Alive', isPlayer: false },
-  { id: 6, name: 'Spartacus', style: 'Heavy', kills: 35, status: 'Dead', isPlayer: false },
-  { id: 7, name: 'Lucius', style: 'Agile', kills: 31, status: 'Alive', isPlayer: false },
-  { id: 8, name: 'Decimus', style: 'Balanced', kills: 26, status: 'Alive', isPlayer: false },
-  { id: 9, name: 'Gaius', style: 'Heavy', kills: 22, status: 'Dead', isPlayer: false },
-  { id: 10, name: 'Flavius', style: 'Agile', kills: 18, status: 'Alive', isPlayer: false },
-  {
-    id: 11,
-    name: 'Marcus',
-    style: 'Balanced',
-    kills: 12,
-    status: 'Alive',
-    isPlayer: true,
-    hp: 100,
-    maxHp: 100,
-    attack: 18,
-    defense: 14,
-    accuracy: 78,
-    evasion: 12,
-    critical: 8,
-    block: 15,
-    equipment: {
-      weapon: 'Iron Sword',
-      armor: 'Leather Armor',
-      helmet: 'None',
-      shield: 'Round Shield',
-    },
-  },
-]
+import { getGladiators, createGladiator, updateGladiator, deleteGladiator } from './services/gladiatorApi.js'
 
 const initialProfile = {
   name: 'Player One',
@@ -72,35 +38,39 @@ const styleStats = {
 }
 
 function App() {
-  const [gladiators, setGladiators] = useState(initialGladiators)
-  const [activeGladiator, setActiveGladiator] = useState(initialGladiators[10])
+  const [gladiators, setGladiators] = useState([])
+  const [activeId, setActiveId] = useState(11)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState('')
   const [playerGold, setPlayerGold] = useState(850)
   const [profile] = useState(initialProfile)
 
-  function addGladiator({ name, style }) {
-    const nextId = Math.max(0, ...gladiators.map((gladiator) => gladiator.id)) + 1
-    const newGladiator = {
-      id: nextId,
-      name,
-      style,
-      kills: 0,
-      status: 'Alive',
-      isPlayer: true,
-      hp: 100,
-      maxHp: 100,
-      ...styleStats[style],
-      critical: 5,
-      block: 5,
-      equipment: {
-        weapon: 'Iron Sword',
-        armor: 'Leather Armor',
-        helmet: 'None',
-        shield: 'Round Shield',
-      },
-    }
+  useEffect(() => {
+    getGladiators().then(setGladiators).catch(() => setError('Failed to load gladiators.'))
+      .finally(() => setLoading(false))
+  }, [])
 
-    setGladiators((currentGladiators) => [...currentGladiators, newGladiator])
-    setActiveGladiator(newGladiator)
+  const activeRecord = gladiators.find((gladiator) => gladiator.id === activeId)
+  const activeGladiator = activeRecord ? {
+    ...activeRecord, hp: 100, maxHp: 100, ...styleStats[activeRecord.style], critical: 5, block: 5,
+    equipment: { weapon: 'Iron Sword', armor: 'Leather Armor', helmet: 'None', shield: 'Round Shield' },
+  } : null
+
+  async function addGladiator(data) {
+    const created = await createGladiator(data)
+    setGladiators((current) => [...current, created])
+    setActiveId(created.id)
+  }
+
+  async function editGladiator(id, data) {
+    const updated = await updateGladiator(id, data)
+    setGladiators((current) => current.map((item) => item.id === id ? updated : item))
+  }
+
+  async function removeGladiator(id) {
+    await deleteGladiator(id)
+    setGladiators((current) => current.filter((item) => item.id !== id))
+    if (id === activeId) setActiveId(null)
   }
 
   function purchaseItem(price) {
@@ -122,8 +92,8 @@ function App() {
             />
           }
         />
-        <Route path="/arena" element={<Arena activeGladiator={activeGladiator} />} />
-        <Route path="/leaderboard" element={<Leaderboard gladiators={gladiators} />} />
+        <Route path="/arena" element={activeGladiator ? <Arena key={activeId} activeGladiator={activeGladiator} /> : <Navigate to="/hub" replace />} />
+        <Route path="/leaderboard" element={<Leaderboard gladiators={gladiators} loading={loading} error={error} onEdit={editGladiator} onDelete={removeGladiator} />} />
         <Route
           path="/shop"
           element={<Shop onPurchase={purchaseItem} playerGold={playerGold} />}

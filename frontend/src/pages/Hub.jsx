@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header.jsx'
 
 function Hub({ activeGladiator, gladiators, playerGold }) {
+  if (!activeGladiator) {
+    return <><Header title="Gladiator Hub" /><main className="mx-auto w-full max-w-6xl flex-1 p-6"><p>No active gladiator. <Link className="text-amber-300 underline" to="/create-gladiator">Create a gladiator</Link>.</p></main></>
+  }
   const sortedGladiators = [...gladiators].sort((a, b) => b.kills - a.kills)
   const rank = sortedGladiators.findIndex((gladiator) => gladiator.id === activeGladiator.id) + 1
   const summary = [

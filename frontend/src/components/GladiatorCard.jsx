@@ -1,4 +1,4 @@
-function GladiatorCard({ gladiator, rank }) {
+function GladiatorCard({ gladiator, rank, onEdit, onDelete }) {
   const isDead = gladiator.status === 'Dead'
   const rowStyle = gladiator.isPlayer
     ? 'bg-amber-200 font-bold ring-3 ring-inset ring-amber-600'
@@ -27,6 +27,7 @@ function GladiatorCard({ gladiator, rank }) {
           {gladiator.status}
         </span>
       </td>
+      <td className="px-4 py-3 text-center">{gladiator.isPlayer && <div className="flex gap-2"><button type="button" className="rounded bg-stone-700 px-3 py-2 text-white" onClick={() => onEdit(gladiator)}>Edit</button><button type="button" className="rounded bg-red-900 px-3 py-2 text-white" onClick={() => onDelete(gladiator.id)}>Delete</button></div>}</td>
     </tr>
   )
 }

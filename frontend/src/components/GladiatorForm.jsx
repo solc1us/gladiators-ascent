@@ -4,20 +4,29 @@ function GladiatorForm({ onAdd }) {
   const [name, setName] = useState('')
   const [style, setStyle] = useState('Balanced')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
     const trimmedName = name.trim()
 
-    if (!trimmedName) {
-      setError('Nama gladiator tidak boleh kosong.')
+    if (trimmedName.length < 3) {
+      setError('Nama gladiator minimal 3 karakter.')
       return
     }
 
-    onAdd({ name: trimmedName, style })
-    setName('')
-    setStyle('Balanced')
     setError('')
+    setLoading(true)
+    try {
+      await onAdd({ name: trimmedName, style })
+      setName('')
+      setStyle('Balanced')
+    } catch (requestError) {
+      const message = requestError.response?.data?.message
+      setError(Array.isArray(message) ? message.join(', ') : message || 'Failed to create gladiator.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -71,8 +80,9 @@ function GladiatorForm({ onAdd }) {
       <button
         className="mt-6 min-h-12 w-full rounded-md border border-amber-500 bg-red-950 px-5 py-3 font-bold transition hover:bg-red-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
         type="submit"
+        disabled={loading}
       >
-        Enter the Arena
+        {loading ? 'Creating...' : 'Enter the Arena'}
       </button>
     </form>
   )

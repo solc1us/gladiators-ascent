@@ -1,0 +1,37 @@
+@base = http://localhost:3000
+
+### Get all
+GET {{base}}/gladiators
+
+### Get seeded Marcus
+GET {{base}}/gladiators/11
+
+### Create (on a fresh server, the new ID is 12)
+POST {{base}}/gladiators
+Content-Type: application/json
+
+{"name":"Aelius","style":"Agile"}
+
+### Update the gladiator created above
+PATCH {{base}}/gladiators/12
+Content-Type: application/json
+
+{"name":"Aelius Victor","style":"Heavy"}
+
+### Delete the gladiator created above
+DELETE {{base}}/gladiators/12
+
+### Invalid DTO: 400
+POST {{base}}/gladiators
+Content-Type: application/json
+
+{"name":"AB","style":"Unknown","kills":-1}
+
+### Missing gladiator: 404
+GET {{base}}/gladiators/99999
+
+### Duplicate name: 409
+POST {{base}}/gladiators
+Content-Type: application/json
+
+{"name":"  MAXIMUS  ","style":"Balanced"}
