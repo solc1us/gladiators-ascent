@@ -1,25 +1,31 @@
 @base = http://localhost:3000
+# Set this to an actual ID from GET all (Marcus is 11 only on a fresh seeded DB).
+@existingId = 11
 
-### Get all
+### Get all (IDs persist and sequences do not restart with NestJS)
 GET {{base}}/gladiators
 
-### Get seeded Marcus
-GET {{base}}/gladiators/11
+### Get an existing record using an ID returned above
+GET {{base}}/gladiators/{{existingId}}
 
-### Create (on a fresh server, the new ID is 12)
+### Create a temporary record; subsequent requests use its returned ID
+# @name createGladiator
 POST {{base}}/gladiators
 Content-Type: application/json
 
-{"name":"Aelius","style":"Agile"}
+{"name":"Aelius-{{$guid}}","style":"Agile"}
 
-### Update the gladiator created above
-PATCH {{base}}/gladiators/12
+### Update only the supplied field on the created record
+PATCH {{base}}/gladiators/{{createGladiator.response.body.$.id}}
 Content-Type: application/json
 
-{"name":"Aelius Victor","style":"Heavy"}
+{"style":"Heavy"}
 
-### Delete the gladiator created above
-DELETE {{base}}/gladiators/12
+### Restart NestJS before this request to verify persistence
+GET {{base}}/gladiators/{{createGladiator.response.body.$.id}}
+
+### Delete only the temporary record created above (returns deleted record)
+DELETE {{base}}/gladiators/{{createGladiator.response.body.$.id}}
 
 ### Invalid DTO: 400
 POST {{base}}/gladiators
@@ -27,10 +33,10 @@ Content-Type: application/json
 
 {"name":"AB","style":"Unknown","kills":-1}
 
-### Missing gladiator: 404
-GET {{base}}/gladiators/99999
+### Missing gladiator: 404 (the temporary record must have been deleted)
+GET {{base}}/gladiators/{{createGladiator.response.body.$.id}}
 
-### Duplicate name: 409
+### Duplicate name: 409 (requires the Maximus seed record)
 POST {{base}}/gladiators
 Content-Type: application/json
 

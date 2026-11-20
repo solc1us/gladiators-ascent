@@ -4,6 +4,10 @@ Gladiator's Ascent adalah game arcade berbasis web dengan sistem pertarungan gla
 
 Proyek ini dibuat sebagai tugas pengembangan web.
 
+## Current React + NestJS setup (Week 10)
+
+The current application is in `frontend/` (React/Vite) and `backend/` (NestJS/PostgreSQL/Prisma 7). See [backend setup and verification](backend/README.md) for database migrations, seeding, API tests, and startup commands. The HTML descriptions below refer to the earlier implementation.
+
 ## Halaman
 
 - `index.html` - menu utama.
